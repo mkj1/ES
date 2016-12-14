@@ -1,0 +1,33 @@
+@model EmbeddedStock2.ViewModels.TypeViewModel
+
+<div class="row"> 
+<h2>Create new type<h2>
+<form asp-controller="type" asp-action="create" method="post">
+    Name:  <input asp-for="Name"/> <br />
+    Info:  <input asp-for="Info"/> <br />
+    Location:  <input asp-for="Location"/> <br />
+    ImageUrl:  <input asp-for="ImageUrl"/> <br />
+    Manufacturer:  <input asp-for="Manufacturer"/> <br />
+    Which categories does the type belong to: <br>
+    <select asp-for="CategoryIds">
+      @foreach (var category in @ViewBag.categoryList)
+      {    
+        <option value="@category.CategoryId">@category.Name</option>
+      }
+    </select>
+    <br><br>
+  <button onclick="goBack()"class="btn">Back</button>
+    
+    <button type="submit" class="btn">Create</button>
+</form>
+<div class="row"> 
+
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+  
+    

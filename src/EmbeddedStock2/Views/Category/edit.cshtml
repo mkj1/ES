@@ -1,0 +1,32 @@
+@model EmbeddedStock2.ViewModels.CategoryViewModel
+
+<div class="row"> 
+<h2>Edit Category<h2>
+<form asp-controller="category" asp-action="update" method="post">
+    Name:  <input asp-for="Name"/> <br />
+    Existing Component Types:
+    @foreach (var componentType in @ViewBag.existingComponentList)
+      {    
+        <li>@componentType.ComponentName</li>
+      }
+    Choose Component types: <br>
+    <select asp-for="ComponentTypeIds">
+      @foreach (var componentType in @ViewBag.componentList)
+      {    
+        <option value="@componentType.ComponentTypeId">@componentType.ComponentName</option>
+      }
+    </select>
+    <input asp-for="Id" hidden="true" value="@ViewBag.category.CategoryId"></input>
+    <br>
+  <button onclick="goBack()"class="btn">Back</button>
+    
+    <button type="submit" class="btn">Update</button>
+</form>
+<div class="row">
+
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>

@@ -1,0 +1,15 @@
+<h2>@ViewBag.category.Name</h2>
+<h3> Component types </h3>
+@foreach (var item in @ViewBag.componentList)
+      {    
+        <li>@item.ComponentName</li>
+      }
+      <br>
+      
+<button onclick="goBack()"class="btn">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>

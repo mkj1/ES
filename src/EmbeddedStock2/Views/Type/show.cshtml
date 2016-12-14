@@ -1,0 +1,23 @@
+<h2>@ViewBag.component_type.ComponentName</h2>
+<h3> Components of this type:</h3>
+
+@foreach (var item in @ViewBag.componentList)
+      {    
+        <li>Component number: @item.ComponentNumber</li>
+      }
+      <br>
+<h3> The type exists in these categories:</h3>
+      
+      @foreach (var item in @ViewBag.categoryNames)
+      {    
+        <li>Category name: @item</li>
+      }
+      <br>
+
+<button onclick="goBack()"class="btn">Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>

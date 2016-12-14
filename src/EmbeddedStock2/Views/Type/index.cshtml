@@ -1,0 +1,13 @@
+<div class="row"> 
+<h2>Types<h2>
+  <button class="btn" onclick="location.href='@Url.Action("new", "type")'">Add</button>
+
+<hr>
+
+@foreach (var item in @ViewBag.list)
+{
+    <span>@item.ComponentName</span>
+    <button class="btn" onclick="location.href='@Url.Action("show", "type")/@item.ComponentTypeId'">Show</button>
+    <br>
+}
+</div> 

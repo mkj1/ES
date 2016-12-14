@@ -1,0 +1,28 @@
+@model EmbeddedStock2.ViewModels.ComponentViewModel
+
+<div class="row"> 
+<h2>Edit Component<h2>
+<form asp-controller="component" asp-action="update" method="post">
+    ComponentNumber:  <input asp-for="ComponentNumber"/> <br /><br>
+    Serial Number:  <input asp-for="SerialNo"/> <br /><br>
+    Add Component type: <br>
+    <select asp-for="ComponentTypeId">
+      @foreach (var componentType in @ViewBag.list)
+      {    
+        <option value="@componentType.ComponentTypeId">@componentType.ComponentName</option>
+      }
+    </select>
+    <input asp-for="ComponentId" hidden="true" value=@this.Model.ComponentId></input>
+    <br><br>
+  <button onclick="goBack()"class="btn">Back</button>
+    
+    <button type="submit" class="btn">Create</button>
+</form>
+<div class="row"> 
+
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>

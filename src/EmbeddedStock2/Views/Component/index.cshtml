@@ -1,0 +1,24 @@
+@model EmbeddedStock2.ViewModels.ComponentViewModel
+
+<div class="row"> 
+<h2>Components<h2>
+  <button class="btn" onclick="location.href='@Url.Action("new", "component")'">Add</button>
+  <hr>
+  <form asp-controller="component" asp-action="search" method="post">
+    Søg (component number):  <input asp-for="SearchTerm"/>
+    <button type="submit" class="btn">Søg</button>
+    <button class="btn" type="button" onclick="location.href='@Url.Action("", "component")'">Show full list</button>   
+  </form>
+    <br><br>
+
+
+
+@foreach (var item in @ViewBag.list)
+{
+    <span>Serial No: @item.SerialNo.</span>
+    <button class="btn" onclick="location.href='@Url.Action("show", "component")/@item.ComponentId'">Show</button>
+    <button class="btn" onclick="location.href='@Url.Action("edit", "component")/@item.ComponentId'">Edit</button>
+    <button class="btn" onclick = "location.href='@Url.Action("delete", "component")/@item.ComponentId';return confirm('Are you sure you wish to delete this article?');" >Delete</button>
+    <br>
+}
+</div> 

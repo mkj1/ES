@@ -1,0 +1,15 @@
+<div class="row"> 
+<h2>Categories<h2>
+  <button class="btn" onclick="location.href='@Url.Action("new", "category")'">Add</button>
+
+<hr>
+
+@foreach (var item in @ViewBag.list)
+{
+    <span>@item.Name</span>
+    <button class="btn" onclick="location.href='@Url.Action("show", "category")/@item.CategoryId'">Show</button>
+    <button class="btn" onclick="location.href='@Url.Action("edit", "category")/@item.CategoryId'">Edit</button>
+    <button class="btn" onclick = "location.href='@Url.Action("delete", "category")/@item.CategoryId';return confirm('Are you sure you wish to delete this article?');" >Delete</button>
+    <br>
+}
+</div> 
